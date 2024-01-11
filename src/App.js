@@ -14,12 +14,12 @@ function App() {
     <Router>
       <Routes>
         <Route path='/washo' element={<Home/>}></Route>
-        <Route path='/cart' element={<Cart/>}></Route>
-        <Route path='/signin' element={<Signin/>}></Route>
-        <Route path='/signup' element={<Signup/>}></Route>
-        <Route path='/contact' element={<Contact/>}></Route>
-        <Route path='/payment' element={<Payment/>}></Route>
-        <Route path='/order' element={<Order/>}></Route>
+        <Route path='/washo/cart' element={<Cart/>}></Route>
+        <Route path='/washo/signin' element={<Signin/>}></Route>
+        <Route path='/washo/signup' element={<Signup/>}></Route>
+        <Route path='/washo/contact' element={<Contact/>}></Route>
+        <Route path='/washo/payment' element={<Payment/>}></Route>
+        <Route path='/washo/order' element={<Order/>}></Route>
       </Routes>
     </Router>
     </div>

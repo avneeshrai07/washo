@@ -30,14 +30,14 @@ function Navbar() {
   return (
     <div className='navbar'>
       <div className="logo">
-        <a href="/">WashO:)</a>
+        <a href="/washo">WashO:)</a>
       </div>
       <ul className={`nav-links ${showNavLinks ? 'show' : ''}`}>
-        <li><a href="/">Home</a></li>
-        <li><a href="/cart">Cart</a></li>
-        <li><a href="/signin">Signin</a></li>
-        <li><a href="/signup">Signup</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/washo">Home</a></li>
+        <li><a href="/washo/cart">Cart</a></li>
+        <li><a href="/washo/signin">Signin</a></li>
+        <li><a href="/washo/signup">Signup</a></li>
+        <li><a href="/washo/contact">Contact</a></li>
       </ul>
       <button id="toggleNavButton" onClick={toggleNavLinks}>
       {showNavLinks ? <BiX size={30}/> : <BiMenu size={30} />}
