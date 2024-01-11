@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/washo/static/css/main.99aaee7a.css",
+    "main.js": "/washo/static/js/main.8c292a55.js",
+    "static/js/787.d5fa4d18.chunk.js": "/washo/static/js/787.d5fa4d18.chunk.js",
+    "static/media/shirts.jpg": "/washo/static/media/shirts.8833df72e18434d914ba.jpg",
+    "static/media/tshirts.jpg": "/washo/static/media/tshirts.504e3aabf9186584dd9a.jpg",
+    "static/media/jackets.jpg": "/washo/static/media/jackets.53fa821ac0e34c062753.jpg",
+    "static/media/suit.jpg": "/washo/static/media/suit.9683072641f487217da4.jpg",
+    "static/media/2.jpg": "/washo/static/media/2.86c0f28c67941223d711.jpg",
+    "static/media/4.jpg": "/washo/static/media/4.be039d409a64131b4c6b.jpg",
+    "static/media/3.jpg": "/washo/static/media/3.dad02cb3cf896c65472a.jpg",
+    "static/media/1.jpg": "/washo/static/media/1.4163e774ae0a0ebae9ab.jpg",
+    "static/media/shoes.jpg": "/washo/static/media/shoes.7331cf14fefda80bd1ff.jpg",
+    "static/media/sweaters.jpg": "/washo/static/media/sweaters.6c9cfa6fa9bfe3e7c899.jpg",
+    "static/media/jeans.jpg": "/washo/static/media/jeans.f02ea14771ff0f68b85a.jpg",
+    "index.html": "/washo/index.html",
+    "main.99aaee7a.css.map": "/washo/static/css/main.99aaee7a.css.map",
+    "main.8c292a55.js.map": "/washo/static/js/main.8c292a55.js.map",
+    "787.d5fa4d18.chunk.js.map": "/washo/static/js/787.d5fa4d18.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.99aaee7a.css",
+    "static/js/main.8c292a55.js"
+  ]
+}
