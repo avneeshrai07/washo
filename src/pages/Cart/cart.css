@@ -1,0 +1,111 @@
+.cart_cart-container {
+  margin: auto;
+}
+
+.cart_cart-container h1 {
+  text-align: center;
+  color: #fffafa;
+}
+
+.cart_sections-container {
+  font-size: 1.5vw;
+  flex-wrap: wrap;
+}
+
+.cart_section {
+  color:white;
+  border: 1px solid #ffffff;
+  display: inline-block;
+  width: 30vw;
+  height:30vw;
+  margin: 1vw;
+  text-align: center;
+}
+
+.cart_section button {
+  align-items: center;
+  margin-top:12vw;
+  margin-left:0.5vw;
+  margin-right: 0.5vw;
+  width: 5vw;
+  height:3vw;
+  cursor: pointer;
+  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+  border: none;
+  border-radius: 5px;
+  font-size: 1vw; 
+}
+
+.cart_section:nth-child(1) {
+    background-image: url('../../../public/Images/shirts.jpg');
+    background-size:cover;
+    background-position: center;
+  }
+
+.cart_section:nth-child(2) {
+    background-image: url('../../../public/Images/tshirts.jpg');
+    background-size:cover;
+    background-position: center;
+}
+
+.cart_section:nth-child(3) {
+    background-image: url('../../../public/Images/suit.jpg');
+    background-size:cover;
+    background-position: center;
+}
+
+.cart_section:nth-child(4) {
+    background-image: url('../../../public/Images/jackets.jpg');
+    background-size:cover;
+    background-position: center;
+}
+
+.cart_section:nth-child(5) {
+    background-image: url('../../../public/Images/jeans.jpg');
+    background-size:cover;
+    background-position: center;
+}
+
+.cart_section:nth-child(6) {
+    background-image: url('../../../public/Images/sweaters.jpg');
+    background-size:cover;
+    background-position: center;
+}
+
+.cart_section:nth-child(7) {
+    background-image: url('../../../public/Images/shoes.jpg');
+    background-size:cover;
+    background-position: center;
+}
+
+.cart_menu-container {
+    margin-top: 10vh;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(../../../public/Images/3.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+.cart_menu-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart_menu-container li {
+  margin-bottom: 5px;
+}
+
+.cart_menu-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.cart_menu-container p {
+  text-align: center;
+  color: #555;
+}

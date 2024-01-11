@@ -1,0 +1,45 @@
+/* order.css */
+
+.order {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .order_order-container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .order_order-container h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .order_item {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #fff;
+  }
+  
+  .order_item h3 {
+    color: #333;
+  }
+  
+  .order_item ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .order_item li {
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .order_item p {
+    text-align: right;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /* Add more styles as needed */
+  
