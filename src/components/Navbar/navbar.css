@@ -24,15 +24,17 @@ body {
     gap: 20px;
 }
 
-.nav-links li {
+.nav-links button {
     padding: 5px;
-}
-
-.nav-links a {
+    border: none;
+    background-color: transparent;
     color: white;
     text-decoration: none;
     font-weight: bold;
+    cursor: pointer;
 }
+
+
 
 
 @media screen and (max-width: 768px) {

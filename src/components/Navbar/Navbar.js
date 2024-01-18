@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
 import './navbar.css';
 import { BiMenu, BiX } from 'react-icons/bi';
 
@@ -6,6 +7,8 @@ import { BiMenu, BiX } from 'react-icons/bi';
 
 function Navbar() {
   const [showNavLinks, setShowNavLinks] = useState(false);
+  const navigate = useNavigate();
+  
 
   useEffect(() => {
     const handleResize = () => {
@@ -16,16 +19,31 @@ function Navbar() {
 
     window.addEventListener('resize', handleResize);
 
-    // Cleanup the event listener when the component unmounts
+    
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []); // Empty dependency array ensures that the effect runs once after the initial render
+  }, []);
 
   const toggleNavLinks = () => {
     setShowNavLinks(!showNavLinks);
   };
 
+  const HomeButtonClicked = () =>{
+    navigate('/washo');
+  }
+  const CartButtonClicked = () =>{
+    navigate('/washo/');
+  }
+  const SigninButtonClicked = () =>{
+    navigate('/washo/Signin');
+  }
+  const SignupButtonClicked = () =>{
+    navigate('/washo/Signup');
+  }
+  const ContactButtonClicked = () =>{
+    navigate('/washo/Contact');
+  }
 
   return (
     <div className='navbar'>
@@ -33,11 +51,11 @@ function Navbar() {
         <a href="/washo">WashO:)</a>
       </div>
       <ul className={`nav-links ${showNavLinks ? 'show' : ''}`}>
-        <li><a href="/washo">Home</a></li>
-        <li><a href="/washo/cart">Cart</a></li>
-        <li><a href="/washo/signin">Signin</a></li>
-        <li><a href="/washo/signup">Signup</a></li>
-        <li><a href="/washo/contact">Contact</a></li>
+        <button onClick={HomeButtonClicked}>Home</button>
+        <button onClick={CartButtonClicked}>Cart</button>
+        <button onClick={SigninButtonClicked}>Signin</button>
+        <button onClick={SignupButtonClicked}>Signup</button>
+        <button onClick={ContactButtonClicked}>Contact</button>
       </ul>
       <button id="toggleNavButton" onClick={toggleNavLinks}>
       {showNavLinks ? <BiX size={30}/> : <BiMenu size={30} />}
