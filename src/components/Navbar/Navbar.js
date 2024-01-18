@@ -33,16 +33,16 @@ function Navbar() {
     navigate('/washo');
   }
   const CartButtonClicked = () =>{
-    navigate('/washo/');
+    navigate('/washo/cart');
   }
   const SigninButtonClicked = () =>{
-    navigate('/washo/Signin');
+    navigate('/washo/signin');
   }
   const SignupButtonClicked = () =>{
-    navigate('/washo/Signup');
+    navigate('/washo/signup');
   }
   const ContactButtonClicked = () =>{
-    navigate('/washo/Contact');
+    navigate('/washo/contact');
   }
 
   return (

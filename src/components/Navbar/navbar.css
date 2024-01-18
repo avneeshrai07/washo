@@ -25,7 +25,10 @@ body {
 }
 
 .nav-links button {
-    padding: 5px;
+
+    /* width:18vw; */
+    height:4vh;
+    text-align: center;
     border: none;
     background-color: transparent;
     color: white;
@@ -34,7 +37,9 @@ body {
     cursor: pointer;
 }
 
-
+.nav-links button:hover{
+    background-color: pink;
+}
 
 
 @media screen and (max-width: 768px) {
