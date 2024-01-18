@@ -6,10 +6,10 @@ function Header() {
   const navigate = useNavigate();
 
   const handleMakeOrder= ()=>{
-    navigate('/cart');
+    navigate('/washo/cart');
   }
   const handleViewOrder= ()=>{
-    navigate('/order');
+    navigate('/washo/order');
   }
 
 
