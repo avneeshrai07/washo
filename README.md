@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# `Washo Website Link`
+https://avneeshrai07.github.io/washo/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# WashO - Fresh Clothes Fresh You :)
 
-## Available Scripts
+Welcome to **WashO**, your one-stop solution for all your laundry needs! This MERN (MongoDB, Express, React, Node.js) website is designed to make the process of giving your clothes for washing seamless and convenient.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### 1. Washing Cart Menu
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Selection:** Users can easily select different categories of clothes such as shirts, pants, shoes, etc.
+- **Pricing:** Each item in the menu displays the corresponding washing cost.
+- **Quantity:** Users can choose the quantity of each item they want to wash.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Receipt Generation
 
-### `npm test`
+After selecting the items, the website generates a detailed receipt with the following information:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Name of Selected Clothes (X):** Displaying the name of each selected item.
+- **Number of Clothes (n):** Showing the quantity of each selected item.
+- **Price of Selected Clothes (X * n):** Calculating the total cost for each selected item.
+- **Total Cost:** Summing up the total cost of all selected items.
 
-### `npm run build`
+### 3. Order Placement
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Users can proceed to the checkout by clicking on "Order Now." Payment can be made via Razorpay (currently not working).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 4. Previous Order Records
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+WashO keeps track of your previous orders, allowing you to review your laundry history.
 
-### `npm run eject`
+### 5. User Authentication
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Signin and Signup Pages:** Secure authentication through dedicated sign-in and sign-up pages.
+- **TwilioService for OTP Verification (currently not working):** Utilizing TwilioService for an extra layer of security through OTP verification.
+- **MongoDB Compass:** Storing user data securely in the MongoDB Compass database.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 6. Data Security
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **JSON Web Tokens (JWT):** Ensuring secure data transfer to the database using JWT.
+- **Bcrypt for Password Salting:** Implementing password salting with Bcrypt for enhanced security in the database.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/avneeshrai07/washo.git
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Install dependencies:
+   ```bash
+   cd washo
+   npm install
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Run the development server:
+   ```bash
+   npm start
+   ```
 
-### Code Splitting
+4. Access the WashO website locally at [http://localhost:3000](http://localhost:3000).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Known Issues
 
-### Analyzing the Bundle Size
+- Razorpay integration for payment is currently not working.
+- TwilioService for OTP verification is currently not functional.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Feel free to contribute and make WashO even better! If you encounter any issues, please report them in the [Issues](https://github.com/avneeshrai07/washo/issues) section.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Happy washing! 🧺✨
