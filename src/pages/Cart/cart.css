@@ -1,95 +1,147 @@
 .cart_cart-container {
-  margin: auto;
-}
-
-.cart_cart-container h1 {
-  text-align: center;
-  color: #fffafa;
-}
-
-.cart_sections-container {
-  font-size: 1.5vw;
-  flex-wrap: wrap;
+  color: white;
 }
 
 .cart_section {
-  color:white;
-  border: 1px solid #ffffff;
+  position: relative;
+  color: white;
   display: inline-block;
-  width: 30vw;
-  height:30vw;
+  width: 20vw;
+  height: 20vw;
   margin: 1vw;
   text-align: center;
-}
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Adjusted transition time */
+  animation: fadeIn 1s ease-out forwards; /* Add fade-in animation */
 
-.cart_section button {
-  align-items: center;
-  margin-top:12vw;
-  margin-left:0.5vw;
-  margin-right: 0.5vw;
-  width: 5vw;
-  height:3vw;
-  cursor: pointer;
-  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
-  border: none;
-  border-radius: 5px;
-  font-size: 1vw; 
-}
-
-.cart_section:nth-child(1) {
-    background-image: url('../../../public/Images/shirts.jpg');
-    background-size:cover;
-    background-position: center;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 115%;
+    background-color: rgba(17, 0, 71, 0.6); /* Translucent black layer */
+    z-index: 1;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 1s ease; /* Smooth transition */
   }
 
+  &:hover::after {
+    opacity: 1; /* Show overlay smoothly on hover */
+  }
+
+  h3, h1, button {
+    display: none; /* Hide all content inside .cart_section by default */
+    opacity: 0; /* Set opacity to 0 initially */
+    transform: translateY(10px); /* Slightly move content down initially */
+    transition: opacity 1.5s ease, transform 0.5s ease; /* Add transition for smooth appearance */
+    z-index: 2;
+    position: relative;
+  }
+
+  &:hover h3,
+  &:hover h1,
+  &:hover button {
+    display: block; /* Show content when hovering over .cart_section */
+    opacity: 1; /* Fade in content */
+    transform: translateY(0); /* Move content back to its original position */
+  }
+}
+
+/* Fade-in animation for the entire cart section */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Button styling inside cart_section */
+.cart_section button {
+  --border-thickness: 3px;   /* border thickness */
+  --corner-size: .40em;      /* size of the corner */
+  --main-color: #d3bcdf;
+  margin-left: 37%;
+  margin-top: 10%;
+  padding: calc(.5em + var(--corner-size)) calc(.9em + var(--corner-size));
+  color: var(--main-color);
+  --padding-adjustment: var(--corner-size);
+  background:
+    conic-gradient(from 90deg at var(--border-thickness) var(--border-thickness), #0000 90deg, var(--main-color) 0)
+    var(--padding-adjustment) var(--padding-adjustment) / calc(100% - var(--border-thickness) - 2 * var(--padding-adjustment)) calc(100% - var(--border-thickness) - 2 * var(--padding-adjustment));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--border-thickness) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+  &:hover,
+  &:focus-visible {
+    --padding-adjustment: 0px;
+    outline-color: var(--main-color);
+    outline-offset: 1.05em;
+  }
+
+  &:active {
+    background: var(--main-color);
+    color: #fff;
+  }
+}
+
+/* Background images for different cart sections */
+.cart_section:nth-child(1) {
+  background-image: url('../../../public/Images/shirt.png');
+}
+
 .cart_section:nth-child(2) {
-    background-image: url('../../../public/Images/tshirts.jpg');
-    background-size:cover;
-    background-position: center;
+  background-image: url('../../../public/Images/tshirt.png');
 }
 
 .cart_section:nth-child(3) {
-    background-image: url('../../../public/Images/suit.jpg');
-    background-size:cover;
-    background-position: center;
+  background-image: url('../../../public/Images/suits.png');
 }
 
 .cart_section:nth-child(4) {
-    background-image: url('../../../public/Images/jackets.jpg');
-    background-size:cover;
-    background-position: center;
+  background-image: url('../../../public/Images/jacket.png');
 }
 
 .cart_section:nth-child(5) {
-    background-image: url('../../../public/Images/jeans.jpg');
-    background-size:cover;
-    background-position: center;
+  background-image: url('../../../public/Images/pants.png');
 }
 
 .cart_section:nth-child(6) {
-    background-image: url('../../../public/Images/sweaters.jpg');
-    background-size:cover;
-    background-position: center;
+  background-image: url('../../../public/Images/sweater.png');
 }
 
 .cart_section:nth-child(7) {
-    background-image: url('../../../public/Images/shoes.jpg');
-    background-size:cover;
-    background-position: center;
+  background-image: url('../../../public/Images/shoes.png');
+}
+
+.cart_section:nth-child(8) {
+  background-image: url('../../../public/Images/bag.png');
 }
 
 .cart_menu-container {
-    margin-top: 10vh;
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-image: url(../../../public/Images/3.jpg);
-    background-size: cover;
-    background-position: center;
-  }
+  margin-top: 10vh;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url(../../../public/Images/3.jpg);
+  background-size: cover;
+  background-position: center;
+}
 
 .cart_menu-container ul {
   list-style: none;
@@ -108,4 +160,64 @@
 .cart_menu-container p {
   text-align: center;
   color: #555;
+}
+
+/* Order now button styling */
+.orderNow_button {
+  display: inline-block;
+  width: 150px;  /* Increased width for better appearance */
+  height: 50px;
+  font-family: serif;
+  font-size: large;
+  margin-bottom: 9vh ;  /* Centered horizontally */
+  border-radius: 10px;
+  border: 1px solid #9b28e7;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in;
+  z-index: 1;
+  background-color: #fff;  /* Ensures background is white */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Adds subtle shadow */
+  text-align: center;  /* Centers text inside button */
+  line-height: 50px;  /* Vertically centers text */
+  cursor: pointer;
+}
+
+.orderNow_button::before, 
+.orderNow_button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 100%;
+  transform: skew(15deg);
+  transition: all 0.5s ease-in;
+  z-index: -1;
+}
+
+.orderNow_button::before {
+  left: -10px;
+  background: #a555ef;
+}
+
+.orderNow_button::after {
+  right: -10px;
+  background: #ab09ba;
+}
+
+.orderNow_button:hover::before, 
+.orderNow_button:hover::after {
+  width: 58%;
+}
+
+.orderNow_button:hover span {
+  color: #e0aaff;
+  transition: color 0.3s ease-in;
+}
+
+.orderNow_button span {
+  color: #03045e;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease-in;
 }

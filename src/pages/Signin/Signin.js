@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import './signin.css';
 
@@ -7,11 +8,11 @@ const Signin = () => {
     phoneNumber: '',
     password: '',
   });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -28,7 +29,7 @@ const Signin = () => {
       if (response.ok) {
         const result = await response.json();
         console.log(result); // You can handle the response as needed, e.g., store the token in local storage
-        alert('Login successful');
+        navigate('/washo');
       } else {
         console.error('Failed to login');
         alert('Login failed');

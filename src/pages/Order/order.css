@@ -1,45 +1,62 @@
 /* order.css */
 
-.order {
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .order_order-container {
-    max-width: 800px;
-    margin: auto;
-  }
-  
-  .order_order-container h1 {
-    text-align: center;
-    color: #333;
-  }
-  
-  .order_item {
-    border: 1px solid #ddd;
-    margin: 10px 0;
-    padding: 15px;
-    background-color: #fff;
-  }
-  
-  .order_item h3 {
-    color: #333;
-  }
-  
-  .order_item ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .order_item li {
-    margin-bottom: 5px;
-    color: #555;
-  }
-  
-  .order_item p {
-    text-align: right;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  /* Add more styles as needed */
-  
+.orderPage_belowNav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  /* height: 100vh; */
+  background-color: transparent;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.orderPage_h1 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.orderPage_error {
+  color: red;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.orderPage_noOrders {
+  text-align: center;
+  color: #777;
+  font-size: 18px;
+}
+
+.orderBox {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+  width: 100%;
+}
+
+.orderBox_date,
+.orderBox_totalCost {
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+.orderBox_items {
+  list-style-type: none;
+  padding: 0;
+}
+
+.orderBox_item {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.orderBox_item:last-child {
+  border-bottom: none;
+}

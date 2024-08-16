@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import './signup.css';
 
@@ -9,7 +10,7 @@ const Signup = () => {
     password: '',
     confirmPassword: '',
   });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -29,7 +30,7 @@ const Signup = () => {
 
       if (response.ok) {
         const result = await response.json();
-        console.log(result); // You can handle the response as needed
+        navigate('/washo'); // You can handle the response as needed
       } else {
         console.error('Failed to register user');
       }
@@ -43,7 +44,7 @@ const Signup = () => {
       <Navbar />
       <div className='Signup_card'>
         <div className='Signup_text'>
-          <h1>Welcome Back!</h1>
+          <h1>Welcome :)</h1>
           <h3>Continue your journey with us</h3>
         </div>
         <div className='Signup_form'>

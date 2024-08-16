@@ -14,6 +14,7 @@ const Cart = () => {
     Pants: { count: 0, cost: 50 },
     Sweaters: { count: 0, cost: 60 },
     Shoes: { count: 0, cost: 25 },
+    Bags: { count: 0, cost: 50 },
   });
 
   const handleAdd = (section) => {
@@ -43,7 +44,23 @@ const Cart = () => {
   const navigate = useNavigate();
 
   const orderNowClicked = () => {
-    // ... (unchanged code)
+    const orderItems = {};
+    let totalCost = 0;
+
+    Object.entries(cart).forEach(([section, { count, cost }]) => {
+      if (count > 0) {
+        orderItems[section] = { count, cost };
+        totalCost += count * cost;
+      }
+    });
+
+    const newOrder = {
+      date: new Date().toLocaleString(),
+      items: orderItems,
+      totalCost,
+    };
+
+    navigate('/washo/payment', { state: newOrder }); // Navigate to the payment page with order details
   };
 
   return (
@@ -55,11 +72,11 @@ const Cart = () => {
         <div className="cart_sections-container">
           {Object.entries(cart).map(([section, { count }]) => (
             <div key={section} className="cart_section">
-              <h3>{section}</h3>
-              <p>Cost: Rs {cart[section].cost}</p>
-              <button onClick={() => handleAdd(section)}>+</button>
-              <button onClick={() => handleRemove(section)}>-</button>
-              <p>Count: {count}</p>
+              <h1>{section}</h1>
+              <h3>Cost: Rs {cart[section].cost}</h3>
+              <button onClick={() => handleAdd(section)}>Add</button>
+              <button onClick={() => handleRemove(section)}>Remove</button>
+              <h3>Count: {count}</h3>
             </div>
           ))}
         </div>
@@ -69,7 +86,7 @@ const Cart = () => {
           <ul>{renderMenuItems()}</ul>
           <p>Total Cost: Rs {Object.values(cart).reduce((total, { count, cost }) => total + count * cost, 0)}</p>
           <div className='orderNow'>
-            <button className="buttons button" onClick={orderNowClicked}>Order Now</button>
+            <button className="orderNow_button" onClick={orderNowClicked}>Order Now</button>
           </div>
         </div>
       </div>

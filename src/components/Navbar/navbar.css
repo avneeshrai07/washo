@@ -25,21 +25,60 @@ body {
 }
 
 .nav-links button {
-
-    /* width:18vw; */
-    height:4vh;
+    display: inline-block;
+    height: 4vh;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+    font-size:medium;
+    font-family: serif;
     text-align: center;
-    border: none;
     background-color: transparent;
     color: white;
-    text-decoration: none;
     font-weight: bold;
     cursor: pointer;
+
+    &::before, &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 100%;
+        transform: skew(15deg);
+        transition: all 0.5s;
+        overflow: hidden;
+        z-index: -1;
+    }
+
+    &::before {
+        left: -2px;
+        background: #a555ef;
+    }
+
+    &::after {
+        right: -2px;
+        background: #ab09ba;
+    }
+
+    &:hover::before, &:hover::after {
+        width: 58%;
+    }
+
+    span {
+        color: #03045e;
+        transition: all 0.3s ease-in;
+    }
+
+    &:hover span {
+        color: #e0aaff;
+        transition: 0.3s;
+    }
 }
 
-.nav-links button:hover{
-    background-color: pink;
-}
+
 
 
 @media screen and (max-width: 768px) {
