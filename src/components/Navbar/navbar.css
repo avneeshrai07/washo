@@ -27,7 +27,8 @@ body {
 .nav-links button {
     display: inline-block;
     height: 4vh;
-    border-radius: 2px;
+    /* width:5vw; */
+    /* border-radius: 15%; */
     border: 1px solid transparent;
     position: relative;
     overflow: hidden;
@@ -54,12 +55,12 @@ body {
     }
 
     &::before {
-        left: -2px;
+        left: -3px;
         background: #a555ef;
     }
 
     &::after {
-        right: -2px;
+        right: -3px;
         background: #ab09ba;
     }
 

@@ -29,7 +29,7 @@ const Signup = () => {
       });
 
       if (response.ok) {
-        const result = await response.json();
+        // const result = await response.json();
         navigate('/washo'); // You can handle the response as needed
       } else {
         console.error('Failed to register user');
