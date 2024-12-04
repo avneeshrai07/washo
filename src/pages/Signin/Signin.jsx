@@ -2,38 +2,21 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import './signin.css';
-
+import { useUser } from '../../Auth/Context/UserContext';
+import GetToken from '../../Auth/JWT/GetToken';
 const Signin = () => {
-  const [formData, setFormData] = useState({
-    phoneNumber: '',
-    password: '',
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-  
+  const {logIn,uid,currentUser} = useUser();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      // Send user login data to the server
-      const response = await fetch('http://localhost:5000/signin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        console.log(result); // You can handle the response as needed, e.g., store the token in local storage
-        navigate('/washo');
-      } else {
-        console.error('Failed to login');
-        alert('Login failed');
-      }
+      await logIn(email,password);
+      const token = await GetToken(currentUser);
+      console.log("token: "+token);
+      navigate('/washo');
     } catch (error) {
       console.error('Error during login:', error);
     }
@@ -50,17 +33,17 @@ const Signin = () => {
         <div className='Signin_form'>
           <form onSubmit={handleSubmit}>
             <input
-              type='number'
-              name='phoneNumber'
-              placeholder='Phone number'
-              onChange={handleChange}
+              type='email'
+              name='email address'
+              placeholder='email address'
+              onChange={(event) => setEmail(event.target.value)}
               required
             />
             <input
               type='password'
               name='password'
               placeholder='Password'
-              onChange={handleChange}
+              onChange={(event)=> setPassword(event.target.value)}
               required
             />
             <button className='Signin_btn' type='submit'>

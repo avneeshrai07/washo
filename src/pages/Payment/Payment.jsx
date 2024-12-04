@@ -12,7 +12,7 @@ const Payment = () => {
     const orderDetails = state;
 
     try {
-      const response = await axios.post('http://localhost:5000/api/payment/initiate', orderDetails); // Update the path here
+      const response = await axios.post('http://localhost:5000/api/payment/initiate', orderDetails); 
 
       const options = {
         key: process.env.REACT_APP_RAZORPAY_KEY, 

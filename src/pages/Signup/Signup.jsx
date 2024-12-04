@@ -2,37 +2,29 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import './signup.css';
+import { useUser } from '../../Auth/Context/UserContext';
+import GetToken from '../../Auth/JWT/GetToken';
 
-const Signup = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    number: '',
-    password: '',
-    confirmPassword: '',
-  });
+const Signup = (event) => {
+  const [username,setUsername] = useState('');
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
+  const [confirmPassword,setConfirmPassword] = useState('');
+  const { signUp } = useUser();
   const navigate = useNavigate();
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
     try {
-      // Send user registration data to the server
-      const response = await fetch('http://localhost:5000/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        // const result = await response.json();
-        navigate('/washo'); // You can handle the response as needed
-      } else {
-        console.error('Failed to register user');
+      if(password === confirmPassword){
+      await signUp(email, password, username);
+      const token = await GetToken(useUser);
+      navigate('/washo');
+      }
+      else{
+        console.log("Password did not match");
       }
     } catch (error) {
       console.error('Error during user registration:', error);
@@ -54,25 +46,25 @@ const Signup = () => {
               name='username'
               placeholder='Username'
               required
-              onChange={handleChange}
+              onChange={(event) => {setUsername(event.target.value)}}
             />
             <input
-              type='number'
-              name='number'
-              placeholder='Phone number'
-              onChange={handleChange}
+              type='email'
+              name='email'
+              placeholder='email address'
+              onChange = {(event) => {setEmail(event.target.value)}}
             />
             <input
               type='password'
               name='password'
               placeholder='Password'
-              onChange={handleChange}
+              onChange = {(event) => {setPassword(event.target.value)}}
             />
             <input
               type='password'
               name='confirmPassword'
               placeholder='Confirm Password'
-              onChange={handleChange}
+              onChange = {(event) => {setConfirmPassword(event.target.value)}}
             />
             <button className='Signup_btn' type='submit'>
               Signup

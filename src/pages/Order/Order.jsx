@@ -2,15 +2,23 @@ import React, { useEffect, useState } from 'react';
 import './order.css';
 import Navbar from '../../components/Navbar/Navbar';
 import axios from 'axios';
-
+import cookies from 'js-cookie';
 const OrderPage = () => {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(null);
 
+  console.log(cookies.get('token'));
   useEffect(() => {
+    const token = cookies.get('token');
+    console.log('order token:',token);
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/orders'); // Ensure this matches your API route
+        const response = await axios.get('http://localhost:5000/api/orders', {
+          withCredentials: true,  
+          headers: {
+            Authorization: `Bearer ${token}`, // Standard way to pass token
+          },
+        });        
         console.log('Fetched Orders:', response.data);
 
         if (Array.isArray(response.data)) {
