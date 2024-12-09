@@ -9,7 +9,7 @@ import Payment from '../src/pages/Payment/Payment';
 import Order from '../src/pages/Order/Order';
 import Account from './pages/Account/Account';
 import Admin from './pages/Admin/Admin';
-import Chat from '../src/pages/Chat/Chat';
+import Chat from './pages/Chat/UserChat';
 import AdminDashboard from './pages/Admin/Dashboard/AdminDashboard';
 import ProtectedRoute from './Auth/ProtectedRoute';
 import { UserProvider } from './Auth/Context/UserContext';

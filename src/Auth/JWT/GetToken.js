@@ -6,6 +6,7 @@ const GetToken = async (currentUser) => {
   };
 
   try {
+    console.log("GETTOKEN userPayload", userPayload);
     // Send the data to the backend to generate a JWT
     const response = await fetch('http://localhost:5000/TokenGenerate', {
       method: 'POST',

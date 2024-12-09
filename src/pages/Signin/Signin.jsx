@@ -4,18 +4,19 @@ import Navbar from '../../components/Navbar/Navbar';
 import './signin.css';
 import { useUser } from '../../Auth/Context/UserContext';
 import GetToken from '../../Auth/JWT/GetToken';
+import useSocket from '../../Hooks/useSocket';
 const Signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const {logIn,uid,currentUser} = useUser();
+  const {logIn,currentUser} = useUser();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       await logIn(email,password);
       const token = await GetToken(currentUser);
-      console.log("token: "+token);
+      console.log("token: ",token);
       navigate('/washo');
     } catch (error) {
       console.error('Error during login:', error);

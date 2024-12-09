@@ -37,18 +37,37 @@ function Navbar() {
         <a href="/washo">WashO:)</a>
       </div>
       <ul className={`nav-links ${showNavLinks ? "show" : ""}`}>
-        <button onClick={() => navigateTo("/washo")}>Home</button>
-        <button onClick={() => navigateTo("/washo/cart")}>Cart</button>
-        <button onClick={() => navigateTo("/washo/contact")}>Contact</button>
-        <button onClick={() => navigateTo("/washo/order")}>Order</button>
+        <li>
+          <button onClick={() => navigateTo("/washo")}>Home</button>
+        </li>
+        <li>
+          <button onClick={() => navigateTo("/washo/cart")}>Cart</button>
+        </li>
+        <li>
+          <button onClick={() => navigateTo("/washo/contact")}>Contact</button>
+        </li>
+        <li>
+          <button onClick={() => navigateTo("/washo/order")}>Order</button>
+        </li>
         {currentUser ? (
-          <button onClick={() => navigateTo("/washo/account")}>
-            {currentUser.displayName || "Account"}
-          </button>
+          <>
+            <li key="account">
+              <button onClick={() => navigateTo("/washo/account")}>
+                {currentUser.displayName || "Account"}
+              </button>
+            </li>
+            <li key="chat">
+              <button onClick={() => navigateTo("/washo/chat")}>Chat</button>
+            </li>
+          </>
         ) : (
           <>
-            <button onClick={() => navigateTo("/washo/signin")}>Signin</button>
-            <button onClick={() => navigateTo("/washo/signup")}>Signup</button>
+            <li key="signin">
+              <button onClick={() => navigateTo("/washo/signin")}>Signin</button>
+            </li>
+            <li key="signup">
+              <button onClick={() => navigateTo("/washo/signup")}>Signup</button>
+            </li>
           </>
         )}
       </ul>

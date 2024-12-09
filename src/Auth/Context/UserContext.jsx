@@ -20,6 +20,7 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      console.log("Auth state is changed");
       if (user) {
         setUid(user.uid); // Set UID when the user is logged in
       }
@@ -27,6 +28,8 @@ export const UserProvider = ({ children }) => {
     });
     return unsubscribe;
   }, []);
+
+
 
   const value = {
     uid,

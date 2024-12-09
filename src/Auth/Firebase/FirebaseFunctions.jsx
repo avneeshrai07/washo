@@ -31,6 +31,7 @@ import {
   const logIn = async (email, password) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log("Firebase Functions login user", userCredential.user);
       return userCredential.user;
     } catch (error) {
       console.error("Error during log in:", error.message);
