@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useSocket from '../../Hooks/useSocket';
 import { useUser } from '../../Auth/Context/UserContext';
 import fetchMessages from '../Chat/fetchMessages/fetchMessages';
+import Navbar from '../../components/Navbar/Navbar';
 import MessageUI from './MessageUI/messageUI';
 import './UserChat.css'; 
 
@@ -55,6 +56,7 @@ const UserChat = () => {
 
   return (
     <div className="chat-container">
+    <Navbar></Navbar>
       <div className="chat-header">
         <h2>Chat Room for {currentUser?.displayName || "Guest"}</h2>
       </div>

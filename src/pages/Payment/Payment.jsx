@@ -1,18 +1,34 @@
 import React from 'react';
 import './payment.css';
+// import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import cookies from 'js-cookie';
 const Payment = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-
+  const token = cookies.get('token');
+  console.log('Payment token', token);
+  if (!token) {
+    console.error("Token is required for Payments. Login Again");
+    navigate('/washo/signin');
+  }
   const handlePayment = async () => {
     const orderDetails = state;
 
     try {
-      const response = await axios.post('http://localhost:5000/api/payment/initiate', orderDetails); 
+      const response = await axios.post(
+        'http://localhost:5000/api/payment/initiate',
+        orderDetails,
+        {
+          withCredentials: true,  
+          headers: {
+            Authorization: `Bearer ${token}`, 
+          },
+        }
+      );
+      
 
       const options = {
         key: process.env.REACT_APP_RAZORPAY_KEY, 
@@ -23,13 +39,22 @@ const Payment = () => {
         order_id: response.data.id,
         handler: async (response) => {
           try {
-            const paymentResult = await axios.post('http://localhost:5000/api/payment/verify', { 
-              paymentId: response.razorpay_payment_id,
-              orderId: response.razorpay_order_id,
-              signature: response.razorpay_signature,
-              items: orderDetails.items, 
-              totalCost: orderDetails.totalCost,
-            });
+            const paymentResult = await axios.post(
+              'http://localhost:5000/api/payment/verify', 
+              { 
+                paymentId: response.razorpay_payment_id,
+                orderId: response.razorpay_order_id,
+                signature: response.razorpay_signature,
+                items: orderDetails.items, 
+                totalCost: orderDetails.totalCost,
+              },
+              {
+                withCredentials: true,  
+                headers: {
+                  Authorization: `Bearer ${token}`, 
+                },
+              }
+            );            
 
             if (paymentResult.data.success) {
               navigate('/washo/order');

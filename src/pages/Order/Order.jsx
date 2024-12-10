@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import './order.css';
 import Navbar from '../../components/Navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import cookies from 'js-cookie';
 const OrderPage = () => {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState(null);
-
-  console.log(cookies.get('token'));
+  const navigate = useNavigate();
   useEffect(() => {
     const token = cookies.get('token');
     console.log('order token:',token);
     const fetchOrders = async () => {
       try {
+        if (!token) {
+          console.error("Token is Expired. Login Again");
+          navigate('/washo/signin')
+        }
         const response = await axios.get('http://localhost:5000/api/orders', {
           withCredentials: true,  
           headers: {

@@ -1,10 +1,10 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
 .contact-container {
-  height: 120vh;
-  display: flex;
+  height: 150vh;
+  display: grid;
   align-items: center;
-  justify-content: center;
+  justify-content:space-around;
   /* background: linear-gradient(135deg, #667eea, #764ba2); */
   color: #ab09ba;
   text-align: center;

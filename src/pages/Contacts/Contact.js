@@ -1,6 +1,6 @@
 import React from 'react';
 import './Contact.css'; // Ensure to link to your CSS file for styling
-
+import Navbar from '../../components/Navbar/Navbar';
 const Contact = () => {
   return (
     <div className="contact-container">

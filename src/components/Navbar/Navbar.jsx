@@ -41,13 +41,10 @@ function Navbar() {
           <button onClick={() => navigateTo("/washo")}>Home</button>
         </li>
         <li>
-          <button onClick={() => navigateTo("/washo/cart")}>Cart</button>
+          <button onClick={() => navigateTo("/washo/cart")}>Menu</button>
         </li>
         <li>
-          <button onClick={() => navigateTo("/washo/contact")}>Contact</button>
-        </li>
-        <li>
-          <button onClick={() => navigateTo("/washo/order")}>Order</button>
+          <button onClick={() => navigateTo("/washo/order")}>Orders</button>
         </li>
         {currentUser ? (
           <>
@@ -70,6 +67,9 @@ function Navbar() {
             </li>
           </>
         )}
+        <li>
+          <button onClick={() => navigateTo("/washo/contact")}>Contact</button>
+        </li>
       </ul>
       <button id="toggleNavButton" onClick={toggleNavLinks}>
         {showNavLinks ? <BiX size={30} /> : <BiMenu size={30} />}
