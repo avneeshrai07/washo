@@ -1,18 +1,14 @@
-import { useState, useEffect } from "react";
-import { connectSocket, disconnectSocket, sendMessage, receiveMessage } from "../components/SocketIO/SocketHandler";
-import { useUser } from "../Auth/Context/UserContext";
+import { useState, useEffect, useRef } from "react";
+import { connectSocket, disconnectSocket, sendMessage, receiveMessage, removeMessageListener } from "../components/SocketIO/SocketHandler";
+
 const useSocket = (roomId) => {
-  const [messages, setMessages] = useState([]);
   const [connected, setConnected] = useState(false);
-  // const {currentUser} = useUser();
-  // const roomId = currentUser.uid;
+  const messageListenerRef = useRef(null); // To store the active listener reference
 
   useEffect(() => {
     if (roomId) {
       connectSocket(roomId)
-        .then((socketInstance) => {
-          setConnected(true);
-        })
+        .then(() => setConnected(true))
         .catch((error) => {
           console.error("Socket connection failed:", error);
           setConnected(false);
@@ -21,6 +17,10 @@ const useSocket = (roomId) => {
       return () => {
         disconnectSocket();
         setConnected(false);
+        if (messageListenerRef.current) {
+          removeMessageListener(messageListenerRef.current);
+          messageListenerRef.current = null;
+        }
       };
     }
   }, [roomId]);
@@ -28,17 +28,22 @@ const useSocket = (roomId) => {
   const sendMessageToRoom = (messageData) => {
     if (connected) {
       sendMessage(messageData);
+    } else {
+      console.error("Socket is not connected.");
     }
   };
 
   const onMessageReceived = (callback) => {
     if (connected) {
-      receiveMessage(callback);  // Pass callback to handle incoming messages
+      if (messageListenerRef.current) {
+        removeMessageListener(messageListenerRef.current);
+      }
+      messageListenerRef.current = callback;
+      receiveMessage(callback);
     }
   };
 
   return {
-    messages,
     connected,
     sendMessageToRoom,
     onMessageReceived,

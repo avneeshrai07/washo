@@ -1,0 +1,51 @@
+.message-item {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%;
+  position: relative;
+  background-color: #f0f0f0;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #daf8cb; /* Light green for user messages */
+}
+
+.admin-message {
+  align-self: flex-start;
+  background-color: #f0f0f0; /* Light gray for admin messages */
+}
+
+.message-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ensures all content is aligned to the left */
+  gap: 5px;
+}
+
+.message-content strong {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: left; /* Explicitly aligns the text to the left */
+  width: 100%; /* Ensures alignment across the full width */
+}
+
+.message-content p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  text-align: left; /* Explicitly aligns the text to the left */
+  width: 100%; /* Ensures alignment across the full width */
+}
+
+.message-time {
+  font-size: 0.8rem;
+  color: #888;
+  position: absolute;
+  bottom: 10px; /* Adjusts the distance from the bottom */
+  right: 10px; /* Adjusts the distance from the right */
+  text-align: right;
+}

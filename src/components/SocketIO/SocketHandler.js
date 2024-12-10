@@ -6,7 +6,7 @@ let socket;
 export const connectSocket = (roomId) => {
   socket = io("http://localhost:5000", {
     transports: ['websocket'],
-    query: { roomId: roomId },
+    query: { roomId },
   });
 
   return new Promise((resolve, reject) => {
@@ -46,9 +46,16 @@ export const sendMessage = (messageData) => {
 
 export const receiveMessage = (callback) => {
   if (socket) {
-    socket.on("receive_message", (message) => {
-      callback(message); // Emit the received message to the callback
-    });
+    socket.on("receive_message", callback);
+  } else {
+    console.error("Socket is not connected.");
+  }
+};
+
+export const removeMessageListener = (callback) => {
+  if (socket) {
+    socket.off("receive_message", callback);
+    console.log("Message listener removed.");
   } else {
     console.error("Socket is not connected.");
   }
