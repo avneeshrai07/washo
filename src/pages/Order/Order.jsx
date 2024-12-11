@@ -40,7 +40,7 @@ const OrderPage = () => {
     };
 
     fetchOrders();
-  }, []);
+  }, [navigate]);
 
   return ( 
     <div className='orderPage'>

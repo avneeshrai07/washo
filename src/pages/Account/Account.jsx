@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Account.css";
 import { useUser } from "../../Auth/Context/UserContext";
 import Navbar from "../../components/Navbar/Navbar";

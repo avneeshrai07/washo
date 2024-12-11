@@ -21,6 +21,7 @@ const Signup = (event) => {
       if(password === confirmPassword){
       await signUp(email, password, username);
       const token = await GetToken(useUser);
+      console.log("token: ",token);
       navigate('/washo');
       }
       else{

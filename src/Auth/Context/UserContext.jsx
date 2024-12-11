@@ -14,7 +14,6 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [uid, setUid] = useState(null);
-  const [jwt_token, setJwtToken] = useState(null); 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
