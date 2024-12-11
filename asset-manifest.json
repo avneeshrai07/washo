@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/washo/static/css/main.5dc95158.css",
-    "main.js": "/washo/static/js/main.c5a640aa.js",
+    "main.js": "/washo/static/js/main.cdbe892f.js",
     "static/js/787.d5fa4d18.chunk.js": "/washo/static/js/787.d5fa4d18.chunk.js",
     "static/media/2.jpg": "/washo/static/media/2.86c0f28c67941223d711.jpg",
     "static/media/4.jpg": "/washo/static/media/4.be039d409a64131b4c6b.jpg",
@@ -17,11 +17,11 @@
     "static/media/sweater.png": "/washo/static/media/sweater.447b48cc13783d78463f.png",
     "index.html": "/washo/index.html",
     "main.5dc95158.css.map": "/washo/static/css/main.5dc95158.css.map",
-    "main.c5a640aa.js.map": "/washo/static/js/main.c5a640aa.js.map",
+    "main.cdbe892f.js.map": "/washo/static/js/main.cdbe892f.js.map",
     "787.d5fa4d18.chunk.js.map": "/washo/static/js/787.d5fa4d18.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5dc95158.css",
-    "static/js/main.c5a640aa.js"
+    "static/js/main.cdbe892f.js"
   ]
 }
